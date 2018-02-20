@@ -20,7 +20,7 @@ extension UIImageView {
 
     let id = PHImageManager.default().requestImage(
       for: asset,
-      targetSize: frame.size,
+      targetSize: CGSize(width: frame.size.width*UIScreen.main.scale, height: frame.size.height*UIScreen.main.scale),
       contentMode: .aspectFill,
       options: options) { [weak self] image, _ in
       self?.image = image

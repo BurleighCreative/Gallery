@@ -127,6 +127,10 @@ class CameraController: UIViewController {
 
       if let asset = asset {
         strongSelf.cart.add(Image(asset: asset), newlyTaken: true)
+
+        if Config.Camera.imageLimit == 1 {
+            EventHub.shared.doneWithImages?()
+        }
       }
     }
   }

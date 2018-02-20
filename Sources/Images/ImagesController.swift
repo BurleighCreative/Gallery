@@ -221,6 +221,11 @@ extension ImagesController: UICollectionViewDataSource, UICollectionViewDelegate
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let item = items[(indexPath as NSIndexPath).item]
 
+    if Config.Camera.imageLimit == 1 {
+        cart.images = [item]
+        EventHub.shared.doneWithImages?()
+    }
+
     if cart.images.contains(item) {
       cart.remove(item)
     } else {

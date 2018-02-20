@@ -15,7 +15,9 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
     super.viewDidLoad()
     view.backgroundColor = UIColor.white
 
-    Gallery.Config.VideoEditor.savesEditedVideoToLibrary = true
+    Gallery.Config.Camera.imageLimit = 1
+    Gallery.Config.tabsToShow = [Gallery.Config.GalleryTab.imageTab, Gallery.Config.GalleryTab.cameraTab]
+    Gallery.Config.initialTab = Gallery.Config.GalleryTab.imageTab
 
     button = UIButton(type: .system)
     button.frame.size = CGSize(width: 200, height: 50)
