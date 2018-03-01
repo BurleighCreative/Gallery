@@ -14,7 +14,7 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
   public weak var delegate: GalleryControllerDelegate?
 
   public let cart = Cart()
-
+    private var controller : PagesController?
   // MARK: - Init
 
   public required init() {
@@ -41,7 +41,19 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
   }
 
   public override var prefersStatusBarHidden : Bool {
+    if controller == nil {
+        return false
+    }
+
+    let useCamera = Permission.Camera.needsPermission && Permission.Camera.status == .authorized
+    let tabsToShow = Config.tabsToShow.flatMap { $0 != .cameraTab ? $0 : (useCamera ? $0 : nil) }
+
+    if useCamera && tabsToShow[controller!.selectedIndex] == .cameraTab {
+        return true
+    }
+
     return false
+
   }
 
   // MARK: - Child view controller
@@ -92,8 +104,8 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
       return nil
     }
 
-    let controller = PagesController(controllers: controllers)
-    controller.selectedIndex = tabsToShow.index(of: Config.initialTab ?? .cameraTab) ?? 0
+    controller = PagesController(controllers: controllers)
+    controller!.selectedIndex = tabsToShow.index(of: Config.initialTab ?? .cameraTab) ?? 0
 
     return controller
   }

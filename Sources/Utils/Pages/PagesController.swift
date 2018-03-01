@@ -165,6 +165,8 @@ class PagesController: UIViewController {
 
   func notify() {
     if let controller = controllers[selectedIndex] as? PageAware {
+      setNeedsStatusBarAppearanceUpdate()
+        
       controller.pageDidShow()
     }
   }

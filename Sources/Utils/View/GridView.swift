@@ -58,7 +58,7 @@ class GridView: UIView {
       )
     } else {
       Constraint.on(
-        topView.topAnchor.constraint(equalTo: topView.superview!.topAnchor)
+        topView.topAnchor.constraint(equalTo: topView.superview!.topAnchor, constant: 10)
       )
     }
 
