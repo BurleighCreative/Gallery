@@ -28,8 +28,8 @@ class PermissionView: UIView {
       addSubview($0)
     }
 
-    closeButton.g_pin(on: .top)
-    closeButton.g_pin(on: .left)
+    closeButton.g_pin(on: .top, constant: UIApplication.shared.statusBarFrame.height-2)
+    closeButton.g_pin(on: .left, constant: -2)
     closeButton.g_pin(size: CGSize(width: 44, height: 44))
 
     settingButton.g_pinCenter()
