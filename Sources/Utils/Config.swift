@@ -70,7 +70,7 @@ public struct Config {
       public static var borderColor: UIColor = UIColor(red: 0, green: 239/255, blue: 155/255, alpha: 1)
     }
 
-    public static let topBackgroundColor = UIColor.white
+    public static var topBackgroundColor = UIColor.white
 
     struct Dimension {
       static let columnCount: CGFloat = 4
