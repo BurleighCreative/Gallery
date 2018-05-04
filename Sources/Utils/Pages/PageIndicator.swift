@@ -81,7 +81,7 @@ class PageIndicator: UIView {
 
   func makeIndicator() -> UIImageView {
     let imageView = UIImageView(image: GalleryBundle.image("gallery_page_indicator")?.withRenderingMode(.alwaysTemplate))
-    imageView.tintColor = Config.PageIndicator.textColor
+    imageView.tintColor = Config.PageIndicator.selectedTextColor
     return imageView
   }
 
@@ -90,13 +90,6 @@ class PageIndicator: UIView {
   @objc func buttonTouched(_ button: UIButton) {
     let index = buttons.index(of: button) ?? 0
     delegate?.pageIndicator(self, didSelect: index)
-    for b in buttons{
-        if b != button {
-            b.isSelected = false
-            indicator.tintColor = Config.PageIndicator.selectedTextColor
-        }
-    }
-    button.isSelected = true
     select(index: index)
   }
 
@@ -104,7 +97,12 @@ class PageIndicator: UIView {
 
   func select(index: Int, animated: Bool = true) {
     for (i, b) in buttons.enumerated() {
-      b.titleLabel?.font = buttonFont(i == index)
+        b.titleLabel?.font = buttonFont(i == index)
+        if i == index {
+            b.isSelected = true
+        } else {
+            b.isSelected = false
+        }
     }
 
     UIView.animate(withDuration: animated ? 0.25 : 0.0,
