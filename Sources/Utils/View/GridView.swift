@@ -22,6 +22,7 @@ class GridView: UIView {
 
     setup()
     loadingIndicator.startAnimating()
+    self.backgroundColor = Config.Grid.topBackgroundColor
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -87,7 +88,7 @@ class GridView: UIView {
 
   private func makeTopView() -> UIView {
     let view = UIView()
-    view.backgroundColor = UIColor.white
+    view.backgroundColor = Config.Grid.topBackgroundColor
 
     return view
   }
