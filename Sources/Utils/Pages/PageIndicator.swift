@@ -90,6 +90,13 @@ class PageIndicator: UIView {
   @objc func buttonTouched(_ button: UIButton) {
     let index = buttons.index(of: button) ?? 0
     delegate?.pageIndicator(self, didSelect: index)
+    for b in buttons{
+        if b != button {
+            b.isSelected = false
+            indicator.tintColor = Config.PageIndicator.selectedTextColor
+        }
+    }
+    button.isSelected = true
     select(index: index)
   }
 
