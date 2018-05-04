@@ -24,6 +24,10 @@ class AlbumCell: UITableViewCell {
     albumTitleLabel.text = album.collection.localizedTitle
     itemCountLabel.text = "\(album.items.count)"
 
+    albumTitleLabel.textColor = Config.AlbumCell.albumCountTextColor
+    itemCountLabel.textColor = Config.AlbumCell.albumTextColor
+
+
     if let item = album.items.first {
       albumImageView.layoutIfNeeded()
       albumImageView.g_loadImage(item.asset)

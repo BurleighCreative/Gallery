@@ -78,6 +78,13 @@ public struct Config {
     }
   }
 
+    public struct AlbumCell {
+        public static var albumTextColor: UIColor = .black
+        public static var albumCountTextColor: UIColor = .black
+
+    }
+
+
   public struct EmptyView {
     public static var image: UIImage? = GalleryBundle.image("gallery_empty_view_image")
     public static var textColor: UIColor = UIColor(red: 102/255, green: 118/255, blue: 138/255, alpha: 1)
