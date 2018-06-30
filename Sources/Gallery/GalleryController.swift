@@ -55,6 +55,10 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
     return false
 
   }
+    
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return Config.statusBarStyle
+    }
 
   // MARK: - Child view controller
 
