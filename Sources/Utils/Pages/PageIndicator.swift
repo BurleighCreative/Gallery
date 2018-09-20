@@ -69,8 +69,8 @@ class PageIndicator: UIView {
 
   func makeButton(_ title: String) -> UIButton {
     let button = UIButton(type: .custom)
-    button.setTitle(title, for: UIControlState())
-    button.setTitleColor(Config.PageIndicator.textColor, for: UIControlState())
+    button.setTitle(title, for: .normal)
+    button.setTitleColor(Config.PageIndicator.textColor, for: .normal)
     button.setTitleColor(Config.PageIndicator.selectedTextColor, for: .selected)
     button.setTitleColor(UIColor.gray, for: .highlighted)
     button.backgroundColor = Config.PageIndicator.backgroundColor
