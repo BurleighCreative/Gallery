@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'Sources/**/*'
   s.resource = 'Resources/Gallery.bundle'
-  s.frameworks = 'UIKit', 'Foundation', 'AVFoundation', 'Photos', 'PhotosUI', 'CoreLocation', 'AVKit'
+  s.frameworks = 'UIKit', 'Foundation', 'AVFoundation', 'Photos', 'PhotosUI', 'AVKit'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }
 
 end

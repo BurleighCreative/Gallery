@@ -3,7 +3,7 @@ import AVFoundation
 
 class CameraController: UIViewController {
 
-  var locationManager: LocationManager?
+  //var locationManager: LocationManager?
   lazy var cameraMan: CameraMan = self.makeCameraMan()
   lazy var cameraView: CameraView = self.makeCameraView()
   let once = Once()
@@ -33,13 +33,13 @@ class CameraController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    locationManager?.start()
+    //locationManager?.start()
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
 
-    locationManager?.stop()
+    //locationManager?.stop()
   }
 
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -69,7 +69,7 @@ class CameraController: UIViewController {
 
   func setupLocation() {
     if Config.Camera.recordLocation {
-      locationManager = LocationManager()
+      //locationManager = LocationManager()
     }
   }
 
@@ -117,7 +117,8 @@ class CameraController: UIViewController {
     })
 
     self.cameraView.stackView.startLoading()
-    cameraMan.takePhoto(previewLayer, location: locationManager?.latestLocation) { [weak self] asset in
+    //let location: CLLocation? = nil // locationManager?.latestLocation
+    cameraMan.takePhoto(previewLayer, location: nil) { [weak self] asset in
       guard let strongSelf = self else {
         return
       }
